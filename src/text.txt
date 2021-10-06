@@ -53,3 +53,38 @@ const AboutSection = () => {
 //STYLED COMPONENTS
 
 export default AboutSection;
+
+allow to js to do something on the element once it is in view( scroll to view its fire an event)
+with useanimation allow to control an animation and framer motion (when an element start to animate using when should be true threshold: ms )
+useInView is like a state with specific functionality like resuable hook.
+-when an element start to animate with useAnimation
+-  const [element, view] = useInView({ threshold: 0.5 });
+console.log(view);
+return (
+  <Services ref={element}>
+
+  import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
+import { fade } from "../Animation";
+
+const ServiceSection = () => {
+  const controlsAnim = useAnimation();
+  const [element, view] = useInView({ threshold: 0.5 });
+
+  if (view) {
+    controlsAnim.start("show");
+  } else {
+    controlsAnim.start("hidden");
+  }
+  return (
+    <Services
+      variants={fade}
+      animate={controlsAnim}
+      initial="hidden"
+      ref={element}
+    >
+    -------------------------------
+
+  so far i set a variants or else i can say initial and animate pos (once render the component start animate it)
+
+  -control those propreties from variants hidden: {} and show: {} property

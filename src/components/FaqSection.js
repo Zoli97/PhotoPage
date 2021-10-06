@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { About } from "../styles";
 import Toggle from "./Toggle";
 import { AnimateSharedLayout } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { fade } from "../Animation";
 
 const FaqSection = () => {
+  const [element, controlsAnim] = useScroll();
   return (
-    <Faq>
+    <Faq variants={fade} ref={element} animate={controlsAnim} initial="hidden">
       <h2>
         Any Questions ? <span> FAQ </span>{" "}
       </h2>{" "}
@@ -18,7 +21,7 @@ const FaqSection = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed, rem.{" "}
             </p>{" "}
           </div>{" "}
-        </Toggle>
+        </Toggle>{" "}
         <Toggle title=" Daily schedule">
           <div className="answer">
             <p> Lorem ipsum dolor sit amet. </p>{" "}
@@ -26,7 +29,7 @@ const FaqSection = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed, rem.{" "}
             </p>{" "}
           </div>{" "}
-        </Toggle>
+        </Toggle>{" "}
         <Toggle title="Different Payment Methods">
           <div className="answer">
             <p> Lorem ipsum dolor sit amet. </p>{" "}
@@ -34,7 +37,7 @@ const FaqSection = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed, rem.{" "}
             </p>{" "}
           </div>{" "}
-        </Toggle>
+        </Toggle>{" "}
         <Toggle title="What Products do you offer ?">
           <div className="answer">
             <p> Lorem ipsum dolor sit amet. </p>{" "}
@@ -42,8 +45,8 @@ const FaqSection = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed, rem.{" "}
             </p>{" "}
           </div>{" "}
-        </Toggle>
-      </AnimateSharedLayout>
+        </Toggle>{" "}
+      </AnimateSharedLayout>{" "}
     </Faq>
   );
 };

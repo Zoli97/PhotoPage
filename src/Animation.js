@@ -68,22 +68,34 @@ export const LineAnimation = {
 export const slider = {
     hidden: {
         x: "-130%",
-        skew: "45deg",
+        skew: "60deg",
     },
     show: {
         x: "100%",
         skew: "0deg",
-        transition: { ease: "easeOut", duration: 1 },
+        transition: { ease: "easeIn", duration: 1 },
     },
 };
 
 export const SliderContainer = {
-    hidde: {
+    hidden: {
         opacity: 1,
     },
 
     show: {
         opacity: 1,
         transition: { staggerChildren: 0.3, ease: "easeOut" },
+    },
+};
+
+export const slideSwoop = {
+    hidden: {
+        width: "0%",
+        transition: { duration: 1 },
+    },
+
+    show: {
+        ease: "easeOut",
+        duration: 1,
     },
 };

@@ -16,7 +16,13 @@ import {
   SliderContainer,
 } from "../Animation";
 
+import { useScroll } from "../components/useScroll";
+import { slideSwoop } from "../Animation";
+import ScrollTop from "../components/ScrollTop";
+
 const OurWork = () => {
+  const [element, controlsAnim] = useScroll();
+  const [element2, controlsAnim2] = useScroll();
   return (
     <Work
       exit="exit"
@@ -42,18 +48,35 @@ const OurWork = () => {
           </Hide>{" "}
         </Link>{" "}
       </Movie>{" "}
-      <Movie>
-        <h2> The Racer </h2> <div className="line"> </div>{" "}
+      <Movie
+        ref={element}
+        variants={fade}
+        animate={controlsAnim}
+        initial="hidden"
+      >
+        <h2> The Racer </h2>{" "}
+        <motion.div variants={LineAnimation} className="line">
+          {" "}
+        </motion.div>{" "}
         <Link to="/work/the-racer">
           <img src={theracer} alt="The racer" />
         </Link>{" "}
       </Movie>{" "}
-      <Movie>
-        <h2> Good Times </h2> <div className="line"> </div>{" "}
+      <Movie
+        ref={element2}
+        variants={fade}
+        animate={controlsAnim2}
+        initial="hidden"
+      >
+        <h2> Good Times </h2>{" "}
+        <motion.div variants={LineAnimation} className="line">
+          {" "}
+        </motion.div>{" "}
         <Link to="/work/good-times">
           <img src={daria2} alt="Good Times" />
         </Link>{" "}
       </Movie>{" "}
+      <ScrollTop />
     </Work>
   );
 };
@@ -69,8 +92,9 @@ const Work = styled(motion.div)`
   }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
+  overflow: hidden;
 
   .line {
     height: 0.5rem;
@@ -97,20 +121,20 @@ const Frame1 = styled(motion.div)`
   top: 10%;
   width: 100%;
   height: 100vh;
-  background: #fffebf;
+  background: #780000;
   z-index: 2;
 `;
 
 const Frame2 = styled(Frame1)`
-  background: #ff8efb;
+  background: #fdf0d5;
 `;
 
 const Frame3 = styled(Frame1)`
-  background: #8ed2ff;
+  background: #003049;
 `;
 
 const Frame4 = styled(Frame1)`
-  background: #8effa0;
+  background: #669bbc;
 `;
 
 export default OurWork;
