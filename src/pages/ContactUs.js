@@ -83,12 +83,17 @@ const Contact = styled(motion.div)`
   min-height: 90vh;
   @media (max-width: 1500px) {
     padding: 2rem;
+    font-size: 1rem;
   }
 `;
 
 const Title = styled.div`
   margin-bottom: 4rem;
   color: white;
+
+  @media (max-width: 1500px) {
+    margin-top: 5rem;
+  }
 `;
 
 const Hide = styled(motion.div)`

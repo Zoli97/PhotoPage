@@ -8,9 +8,23 @@ const GlobalStyle = createGlobalStyle `
     box-sizing: border-box;
 }
 
+html{
+
+    @media(max-width: 1700px){
+
+        font-size: 75%;
+        
+    }
+
+    @media(max-width: 1300px){
+
+      
+    }
+}
 body{
     background: #282B28;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
    
 }
 
